@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "minimal-edit-semantic-polisher result.json",
+  "type": "object",
+  "required": ["case_id", "status", "artifact", "self_check"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "status": {"enum": ["success", "partial", "blocked"]},
+    "artifact": {
+      "type": "object",
+      "required": ["polished_text", "change_ledger"],
+      "properties": {
+        "polished_text": {"type": "string"},
+        "glossary": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["concept", "status"],
+            "properties": {
+              "concept": {"type": "string"},
+              "zh": {"type": "string"},
+              "en": {"type": "string"},
+              "abbrev_first": {"type": "string"},
+              "status": {"enum": ["consistent", "conflict"]}
+            }
+          }
+        },
+        "change_ledger": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["sentence_id", "original", "revised", "change_type", "reason"],
+            "properties": {
+              "sentence_id": {"type": "string"},
+              "original": {"type": "string"},
+              "revised": {"type": "string"},
+              "change_type": {"enum": ["grammar", "terminology", "register", "semantic_preservation", "punctuation"]},
+              "reason": {"type": "string"},
+              "invariant_safe": {"type": "boolean"}
+            }
+          }
+        }
+      }
+    },
+    "semantic_invariants": {"type": "array"},
+    "fact_source_map": {"type": "array"},
+    "uncertainties": {"type": "array", "items": {"type": "string"}},
+    "human_review_items": {"type": "array", "items": {"type": "string"}},
+    "change_log": {"type": "array"},
+    "self_check": {
+      "type": "object",
+      "required": ["errors_genuinely_fixed", "semantics_preserved", "terminology_consistent", "changes_explained"],
+      "properties": {
+        "errors_genuinely_fixed": {"type": "boolean"},
+        "semantics_preserved": {"type": "boolean"},
+        "terminology_consistent": {"type": "boolean"},
+        "changes_explained": {"type": "boolean"}
+      }
+    }
+  }
+}
