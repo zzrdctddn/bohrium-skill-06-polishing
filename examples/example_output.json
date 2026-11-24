@@ -1,0 +1,32 @@
+{
+  "case_id": "DEMO-NOT-A-REAL-CASE",
+  "status": "success",
+  "note": "示意输出，非真实案例结果。示例中的文本、数值、术语均为虚构，不代表任何真实文本或 benchmark 分数。",
+  "artifact": {
+    "polished_text": "（示意）The results suggest that Method A is correlated with B and may improve C by about 10% in Fig. 3.",
+    "glossary": [
+      {"concept": "方法A", "zh": "方法A", "en": "Method A", "abbrev_first": "Method A", "status": "consistent"}
+    ],
+    "change_ledger": [
+      {"sentence_id": "S1", "original": "（示意）The results suggest that A is correlated with B, and may improves C by about 10% in Fig. 3.", "revised": "（示意）The results suggest that Method A is correlated with B and may improve C by about 10% in Fig. 3.", "change_type": "grammar", "reason": "（示意）may 后接动词原形 improve；删除冗余逗号", "invariant_safe": true},
+      {"sentence_id": "S1", "original": "（示意）... A is correlated with B ...", "revised": "（示意）... Method A is correlated with B ...", "change_type": "terminology", "reason": "（示意）统一方法A译法为 Method A；保留 correlated 未改因果", "invariant_safe": true}
+    ]
+  },
+  "semantic_invariants": [
+    {"item": "限定词与关系", "original_value": "suggest / correlated / may / about", "preserved": true, "note": "（示意）未加强或削弱结论，相关未改因果"},
+    {"item": "数据与图表指向", "original_value": "10% / Fig. 3", "preserved": true, "note": "（示意）数值、单位、图表编号未改"}
+  ],
+  "fact_source_map": [
+    {"item": "10%", "value": "10%", "source_or_record": "（示意）原文数值，未改动"},
+    {"item": "Fig. 3", "value": "Fig. 3", "source_or_record": "（示意）原文图表指向，未改动"}
+  ],
+  "uncertainties": [],
+  "human_review_items": [],
+  "change_log": [],
+  "self_check": {
+    "errors_genuinely_fixed": true,
+    "semantics_preserved": true,
+    "terminology_consistent": true,
+    "changes_explained": true
+  }
+}
