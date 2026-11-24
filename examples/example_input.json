@@ -1,0 +1,10 @@
+{
+  "case_id": "DEMO-NOT-A-REAL-CASE",
+  "note": "以下为演示接口的虚构示例，非官方测试案例，不构成正式答案。",
+  "task": "在保持原意与限定强度的前提下润色英文摘要，并给出逐句修改对照表",
+  "params": {"target_register": "期刊论文英文摘要", "language": "en", "require_change_ledger": true},
+  "text": "（示意）The results suggest that A is correlated with B, and may improves C by about 10% in Fig. 3.",
+  "glossary": [
+    {"concept": "方法A", "zh": "方法A", "en": "Method A", "abbrev_first": "Method A"}
+  ]
+}
